@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    Vue.config.optionMergeStrategies.created = function (to, from) {
+        console.log('from',from);
+    }
+    var mixin = {
+        data() {
+            return {
+                "hello": "hello"
+            }
+        },
+        created() {
+            console.log('混入对象的钩子被调用')
+        },
+    }
+    let vm = new Vue({
+        mixins: [mixin],
+        created() {
+            console.log('组件钩子被调用');
+        },
+        data() {
+            return {
+                "hello": "hello"
+            }
+        }
+    })
+</script>
