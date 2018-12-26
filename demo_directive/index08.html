@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" v-demo="{ color: 'white', text: 'hello!' }"></div>
+</body>
+
+</html>
+<script>
+    // 使用render优化代码
+    Vue.component('anchored-heading', {
+        render: function (createElement) {
+            return createElement(
+                'h' + this.level, // 标签名
+                this.$slots.default
+            )
+        },
+        props: {
+            level: {
+                type: Number,
+                required: true
+            }
+        }
+    })
+</script>
