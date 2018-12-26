@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <input id="app" v-focus type="text" placeholder="pleace input">
+</body>
+
+</html>
+
+<script>
+    // 钩子函数
+    new Vue({
+        el: "#app",
+        directives: {
+            focus: {
+                inserted: function (el) {
+                    el.focus();
+                    console.log('被绑定元素插入父节点了')
+                },
+                bind: function () {
+                    console.log('指令绑定到元素了');
+                },
+                update:function(){
+                    console.log('钩子函数');
+                },
+                componentUpdated:function(){
+                    console.log('componentUpdated ')
+                },
+                unbind:function(){
+                    console.log('unbind')
+                }
+            }
+        }
+    })
+</script>
